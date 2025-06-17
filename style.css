@@ -1,41 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo geral do corpo */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f8ff; /* Cor de fundo suave */
-  margin: 20px;
-  padding: 20px;
+  background-color: #f0f8ff; /* cor de fundo suave */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* altura mínima igual à altura da tela */
+  padding: 2vh 2vw; /* espaçamento interno responsivo */
 }
 
-/* Título da página */
+/* Cabeçalho */
 h1 {
-  color: #333;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 4vh;
+  font-size: 2em;
+  color: #333;
 }
 
-/* Estilo dos inputs */
+/* Inputs e botão */
 input[type="text"],
 input[type="file"] {
-  display: block;
   width: 100%;
-  max-width: 400px;
-  margin: 10px auto;
-  padding: 10px;
+  max-width: 400px; /* limite máximo de largura */
+  padding: 1em;
+  margin: 1vh 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 1em;
 }
 
-/* Estilo do botão */
+/* Botão */
 button {
-  display: block;
-  margin: 15px auto;
-  padding: 10px 20px;
-  background-color: #4CAF50; /* Verde */
+  width: 100%;
+  max-width: 400px;
+  padding: 1em;
+  margin-top: 2vh;
+  background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 1em;
   cursor: pointer;
-  font-size: 16px;
   transition: background-color 0.3s;
 }
 
@@ -43,28 +53,29 @@ button:hover {
   background-color: #45a049;
 }
 
-/* Estilo da área onde as equipes serão exibidas */
+/* Área onde ficam as equipes */
 #equipes {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 4vh;
+  flex: 1; /* ocupa o espaço restante */
+  overflow-y: auto; /* permite rolar se o conteúdo for grande */
+  padding: 1vh 1vw;
+  max-height: calc(100vh - 20vh); /* ajusta para não ultrapassar a altura da tela */
+  border-top: 2px solid #ccc;
 }
 
-/* Estilo de cada equipe cadastrada (se desejar adicionar) */
-.equipe {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+/* Responsividade com media queries */
+@media (max-width: 600px) {
+  body {
+    padding: 2vh 4vw;
+  }
 
-.equipe img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
+  h1 {
+    font-size: 1.5em;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  button {
+    font-size: 0.9em;
+  }
+
